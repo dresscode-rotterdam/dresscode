@@ -1,5 +1,6 @@
 <template>
   <main>
+    <Header />
     <div class="container">
       <div>
         <logo />
@@ -32,11 +33,13 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import Form from '~/components/Form.vue'
+import Header from '~/components/Header.vue'
 
 export default {
   components: {
     Logo,
-    Form
+    Form,
+    Header
   }
 }
 </script>
