@@ -1,6 +1,6 @@
 <template>
     <form>
-        <h1>Meld je aan voor de introductie</h1>
+        <h1>{{ this.title }}</h1>
         <input type="text" name="firstname" placeholder="Voornaam" aria-label="Voornaam" required>
         <input type="text" name="prefix" placeholder="Tussenvoegsel" aria-label="Tussenvoegsel">
         <input type="text" name="lastname" placeholder="Achternaam" aria-label="Achternaam" required>
@@ -15,6 +15,14 @@
         <input type="submit" value="Aanmelden">
     </form>
 </template>
+
+<script>
+export default {
+    props: {
+        title: String
+    },
+}
+</script>
 
 <style scoped>
 form {

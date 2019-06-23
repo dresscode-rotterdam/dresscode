@@ -26,7 +26,7 @@
       </div>
     </div>
     <section id="registration" aria-label="aanmelden">
-      <Form />
+      <Form :title="this.content.attributes['form-title']" />
     </section>
   </main>
 </template>
@@ -36,6 +36,7 @@ import Logo from '~/components/Logo.vue'
 import Form from '~/components/Form.vue'
 import Header from '~/components/Header.vue'
 import Console from '~/components/Console.vue'
+import md from '~/content/index.md'
 
 export default {
   components: {
@@ -43,6 +44,12 @@ export default {
     Form,
     Header,
     Console
+  },
+
+  data() {
+    return {
+      content: md
+    }
   }
 }
 </script>
