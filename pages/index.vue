@@ -1,9 +1,14 @@
 <template>
   <main>
+    <Console />
     <Header />
-    <Description />
+       <Description
+                 
+                 :title="this.content.attributes.['mid-section'][0].description.title" 
+                 :text="'bjhdshfdshjf'"
+                 :img="'dfhdshfdsh'"  />
     <section id="registration" aria-label="aanmelden">
-      <Form />
+      <Form :title="'gdhjdghejd'" />
     </section>
   </main>
 </template>
@@ -13,13 +18,26 @@ import Logo from '~/components/Logo.vue'
 import Form from '~/components/Form.vue'
 import Header from '~/components/Header.vue'
 import Description from '~/components/Description.vue'
+import Console from '~/components/Console.vue'
+import md from '~/content/index.md'
 
 export default {
   components: {
     Logo,
     Form,
     Header,
-    Description
+    Description,
+    Console,
+  },
+
+  data() {
+    return {
+      content: md
+    }
+  },
+
+  mounted() {
+    console.log(this.content.attributes['mid-section'])
   }
 }
 </script>

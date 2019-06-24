@@ -2,13 +2,24 @@
 
 <section class="codeEvent">
     <div>
-        <h4>Code Event</h4>
-        <p>Ieder jaar nemen wij deel aan het Code Event, waarbij wij meisjes van de basisschool kennis laten maken met techniek!</p>
-        <img class="children" src="https://previews.123rf.com/images/mandygodbehear/mandygodbehear1302/mandygodbehear130200052/17888677-group-of-happy-children-having-fun-with-paint.jpg">
+        <h4>{{this.title}}</h4>
+        <p>{{this.text}}</p>
+        <img class="children" v-bind:src="this.img">
     </div>
 </section>
 
 </template>
+
+<script>
+export default {
+    props: {
+        title: String,
+        text: String,
+        img: String
+    }
+}
+
+</script>
 
 <style scoped>
 
