@@ -2,13 +2,14 @@
   <main>
     <Console />
     <Header />
-       <Description
-                 
-                 :title="this.content.attributes.['mid-section'][0].description.title" 
-                 :text="'bjhdshfdshjf'"
-                 :img="'dfhdshfdsh'"  />
+    <Description
+      v-for="item of midSection" 
+      :key="midSection.indexOf(item)"
+      :title="item.description.title"
+      :text="'bjhdshfdshjf'"
+      :img="'dfhdshfdsh'"  />
     <section id="registration" aria-label="aanmelden">
-      <Form :title="'gdhjdghejd'" />
+      <Form :title="formTitle" />
     </section>
   </main>
 </template>
@@ -32,12 +33,9 @@ export default {
 
   data() {
     return {
-      content: md
+      formTitle: md.attributes['form-title'],
+      midSection: md.attributes['mid-section']
     }
-  },
-
-  mounted() {
-    console.log(this.content.attributes['mid-section'])
   }
 }
 </script>
