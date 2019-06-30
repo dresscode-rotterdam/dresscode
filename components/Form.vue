@@ -1,18 +1,22 @@
 <template>
-    <form>
+    <form
+        :name="name"
+        method="POST"
+        @submit.prevent="submitHandler"
+    >
         <h1>{{ this.title }}</h1>
-        <input type="text" name="firstname" placeholder="Voornaam" aria-label="Voornaam" required>
-        <input type="text" name="prefix" placeholder="Tussenvoegsel" aria-label="Tussenvoegsel">
-        <input type="text" name="lastname" placeholder="Achternaam" aria-label="Achternaam" required>
-        <input type="number" name="studentnumber" placeholder="Studentennummer" aria-label="studentennummer" min="1000000" required>
-        <select name="bachelor" aria-label="Opleiding" required>
+        <input type="text" name="firstname" v-model="inputValues.firstname" placeholder="Voornaam" aria-label="Voornaam" required>
+        <input type="text" name="prefix" v-model="inputValues.prefix" placeholder="Tussenvoegsel" aria-label="Tussenvoegsel">
+        <input type="text" name="lastname" v-model="inputValues.lastname" placeholder="Achternaam" aria-label="Achternaam" required>
+        <input type="number" name="studentnumber" v-model="inputValues.studentnumber" placeholder="Studentennummer" aria-label="studentennummer" min="99999" required> 
+        <select name="bachelor" v-model="inputValues.bachelor" aria-label="Opleiding" required>
             <option value="">Opleiding</option>
             <option value="ti">Technische Informatica</option>
             <option value="inf">Informatica</option>
             <option value="cmgt">Creative Media and Game Technologies</option>
             <option value="other">Overig</option>
         </select>
-        <input type="submit" value="Aanmelden">
+        <input type="submit"/>
     </form>
 </template>
 
@@ -21,6 +25,63 @@ export default {
     props: {
         title: String
     },
+    data() {
+        return {
+            name: 'inschrijven-dresscode',
+            inputValues: {
+                firstname: '',
+                prefix: '',
+                lastname: '',
+                studentNumber: '',
+                bachelor: '', 
+            }
+            
+        }
+    },
+    methods: {
+        parse() {
+            let data = {
+                'form-name': this.name
+            }
+
+            for(let key in this.inputValues) {
+                let value = this.inputValues[key]
+
+                if(value) {
+                    data[key] = value
+                }
+            }
+            return data
+        },
+
+        encode(data) {
+        return Object.keys(data)
+                     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+                     .join("&")
+        },
+
+        submitHandler(e) {
+            let data = this.encode(this.parse())
+
+            let headers = new Headers({
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/x-www-form-urlencoded',
+            })
+
+            fetch('/#form', {
+                headers: headers,
+                body: data,
+                method: 'POST'
+            })
+            .then((res) => {
+                console.log('[sucesss]', res)
+            })
+            .catch((err) => {
+                console.error('[error]', err)
+            })
+        },
+    }
+
 }
 </script>
 
