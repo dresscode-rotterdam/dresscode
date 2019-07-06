@@ -156,6 +156,10 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+.submit-container {
+    height: 56px;
+}
+
 .submit-container span {
     position: relative;
     top: -32px;
