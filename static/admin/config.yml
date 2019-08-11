@@ -14,7 +14,12 @@ collections:
         name: landing-page
         file: content/index.md
         fields: 
-          - {label: Form Title, name: form-title, widget: string}
+          - label: Header
+            name: header
+            widget: object
+            fields: 
+              - {label: Title, name: title, widget: string}
+              - {label: Image, name: img, widget: image}
           - label: Mid Section
             name: mid-section
             widget: list
@@ -24,6 +29,8 @@ collections:
                 widget: object
                 fields: 
                   - {label: Title, name: title, widget: string}
+                  - {label: Slug, name: slug, widget: string}
                   - {label: Text, name: text, widget: text}
                   - {label: Image, name: img, widget: image}
-              
+          - {label: Form Title, name: form-title, widget: string}
+          

@@ -1,17 +1,23 @@
 <template>
-  <main>
+  <div>
     <Console />
-    <Header />
-    <Description
-      v-for="item of midSection" 
-      :key="midSection.indexOf(item)"
-      :title="item.description.title"
-      :text="'bjhdshfdshjf'"
-      :img="'dfhdshfdsh'"  />
-    <section id="registration" aria-label="aanmelden">
-      <Form :title="formTitle" />
-    </section>
-  </main>
+    <Header 
+      :title="header.title"
+      :navitems="header.navitems"
+      :img="header.img"
+    />
+    <main>
+      <Description
+        v-for="item of midSection" 
+        :key="midSection.indexOf(item)"
+        :title="item.description.title"
+        :text="'bjhdshfdshjf'"
+        :img="'dfhdshfdsh'"  />
+      <section id="registration" aria-label="aanmelden">
+        <Form :title="formTitle" />
+      </section>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -34,9 +40,15 @@ export default {
   data() {
     return {
       formTitle: md.attributes['form-title'],
-      midSection: md.attributes['mid-section']
+      midSection: md.attributes['mid-section'],
+      header: { 
+        ... md.attributes['header'], 
+        navitems: md.attributes['mid-section'].map((midSectionItem) => {
+          return midSectionItem.description
+        })
+      }
     }
-  }
+  },
 }
 </script>
 

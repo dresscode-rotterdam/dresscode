@@ -1,30 +1,49 @@
 <template>
-
 <header>
     <!--Overlay over de header-->
-    <div id="overlay">
-        
-    </div>
+    <div id="overlay"></div>
 
     <!--Header-->
     <nav>
         <ul class="navbar">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Wie zijn wij?</a></li>
-            <li><a href="#">Aanmelden</a></li>
+            <li v-for="navitem of navitems"
+                :key="navitems.indexOf(navitem)"
+                >
+                  <a :href="'#' + navitem.slug">{{ navitem.title }}</a>
+            </li>
         </ul>
     </nav>
 
-    <div id="header">
+    <div id="header" :style="{backgroundImage: 'url(' + img + ')'}">
         <div id="headertext">
             <h1>
-                Hey!
+                {{ title }}
             </h1>
         </div>
     </div>
 
 </header>
 </template>
+<script>
+export default {
+    props: {
+        title: String,
+        navitems: {
+            type: Array,
+            validator: function (navitems) {
+                for(let navitem of navitems) {
+                    if (!navitem.title && navitem.slug) {
+                        return false
+                    }
+                }
+
+                return true
+            }
+        },
+        img: String,
+    }
+}
+</script>
 
 <style scoped>
 body{
@@ -40,7 +59,6 @@ header{
 #header{
     width: 100vw;
     height: 100vh;
-    background-image: url("https://images.pexels.com/photos/4700/nature-forest-moss-leaves.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     color: white;
     font-family: arial;
     font-size: 8vw;
