@@ -1,13 +1,11 @@
 <template>
-
-<section class="codeEvent">
-    <div>
-        <h4>{{this.title}}</h4>
-        <p>{{this.text}}</p>
-        <img class="children" v-bind:src="this.img">
-    </div>
-</section>
-
+    <section class="codeEvent" :id="slug">
+        <div>
+            <h4>{{title}}</h4>
+            <p>{{text}}</p>
+            <img class="children" v-bind:src="img">
+        </div>
+    </section>
 </template>
 
 <script>
@@ -15,10 +13,10 @@ export default {
     props: {
         title: String,
         text: String,
-        img: String
+        img: String,
+        slug: String,
     }
 }
-
 </script>
 
 <style scoped>

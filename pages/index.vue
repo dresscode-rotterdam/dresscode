@@ -12,7 +12,8 @@
         :key="midSection.indexOf(item)"
         :title="item.description.title"
         :text="'bjhdshfdshjf'"
-        :img="'dfhdshfdsh'"  />
+        :img="'dfhdshfdsh'"  
+        :slug="item.description.slug"/>
       <section id="registration" aria-label="aanmelden">
         <Form :title="formTitle" />
       </section>
