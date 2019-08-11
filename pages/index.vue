@@ -49,6 +49,17 @@ export default {
       }
     }
   },
+
+  head() {
+    return {
+      title: this.header.title,
+      meta: [
+        //add image meta tag since header image is implemented with a CSS tag
+        { hid: 'meta-image', name: 'og:image', property: 'og:image', content: this.header.img },
+        { hid: 'description', name: 'description', content: 'My custom description' },
+      ]
+    }
+  }
 }
 </script>
 
