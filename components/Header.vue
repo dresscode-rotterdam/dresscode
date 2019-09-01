@@ -74,7 +74,9 @@ header{
     width: 100vw;
     height: 100vh;
     color: white;
-    background-position: center center; 
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;  
 }
 
 #headertext{
@@ -111,7 +113,7 @@ nav, .navbar{
 
 .navbar {
     transition: all 0.2s; 
-    padding: 8px;
+    padding: 12px;
 }
 
 .navbar.pastHeader {
