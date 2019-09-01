@@ -27,7 +27,6 @@ import Form from '~/components/Form.vue'
 import Header from '~/components/Header.vue'
 import Description from '~/components/Description.vue'
 import Console from '~/components/Console.vue'
-import md from '~/content/index.md'
 
 export default {
   components: {
@@ -38,7 +37,9 @@ export default {
     Console,
   },
 
-  data() {
+  async asyncData({ params })  {
+    let md = await import('~/content/index.md')
+
     return {
       formTitle: md.attributes['form-title'],
       midSection: md.attributes['mid-section'],
