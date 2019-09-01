@@ -27,7 +27,7 @@ section {
     align-items: center; 
     justify-content: center; 
     margin: auto; 
-    height: 100vh;
+    height: 70vh;
     max-width: 80vw; 
 }
 
@@ -47,6 +47,10 @@ section {
     align-self: flex-start
 }
 
+.content-text p {
+    max-width: 32em;
+}
+
 h2 {
     font-size: 2.1em;
     margin-bottom: 8px;
@@ -60,5 +64,21 @@ img {
     margin-left: 32px; 
     margin-right: 32px;
     align-self: flex-end;
+}
+
+@media (max-width: 59em) {
+    .content {
+        margin-bottom: 64px;
+    }
+
+    section.content div.content-body,
+    section.content:nth-child(2) div.content-body {
+        flex-direction: column; 
+    }
+
+    .content .content-body img {
+        margin-top: 32px;
+        align-self: center;
+    }
 }
 </style>
