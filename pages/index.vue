@@ -1,19 +1,19 @@
 <template>
-  <div ref="page">
+  <div>
     <Console />
     <Header 
       :title="header.title"
       :navitems="header.navitems"
       :img="header.img"
     />
-    <main ref="main">
+    <main>
       <Description
-        v-for="item of midSection" 
-        :key="midSection.indexOf(item)"
-        :title="item.description.title"
-        :text="'bjhdshfdshjf'"
-        :img="'dfhdshfdsh'"  
-        :slug="item.description.slug"/>
+          v-for="item of midSection" 
+          :key="midSection.indexOf(item)"
+          :title="item.description.title"
+          :text="item.description.text"
+          :img="item.description.img"  
+          :slug="item.description.slug"/>
       <section id="registration" aria-label="aanmelden">
         <Form :title="formTitle" />
       </section>

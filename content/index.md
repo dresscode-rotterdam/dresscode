@@ -6,17 +6,17 @@ mid-section:
     - description:
         title: hi
         text: hirfifhkeufgreuk
-        img: rjfekfhekhfjehk
+        img: https://images.unsplash.com/photo-1567284783420-9a5c602d1cb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3401&q=80
         slug: one
     - description:
         title: hello
-        text: hsdfsdf
-        img: jfjdjfdfjf
+        text: loremn sknfalnfanf ksanflnfka askflnfkla akflnfas
+        img: https://images.unsplash.com/photo-1549082984-1323b94df9a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80
         slug: two
     - description:
         title: hey
         text: sjadhasjda
-        img: flkdjfdlfkdj
+        img: https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2304&q=80
         slug: three
-form-title: :DDD 😱
+form-title: Schrijf je in voor de introductie borrel
 ---
