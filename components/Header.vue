@@ -5,7 +5,7 @@
 
     <!--Header-->
     <nav>
-        <ul class="navbar">
+        <ul class="navbar" :class="{pastHeader: isNavbarPastHeader}">
             <li v-for="navitem of navitems"
                 :key="navitems.indexOf(navitem)"
                 >
@@ -41,28 +41,40 @@ export default {
             }
         },
         img: String,
+    },
+    data() {
+        return {
+            isNavbarPastHeader: false, 
+        }
+    },
+    mounted() {
+        if(!'IntersectionObserver' in window) {
+          this.$data.isNavbarPastHeader = true
+          return
+        }
+
+        let observer = new IntersectionObserver((entries, observer) => {
+            let navbar = entries[0]
+            let isPastHeader = !navbar.intersectionRatio
+            this.$data.isNavbarPastHeader = isPastHeader
+        }, {thresholds: [0.0, 1.0]})
+
+        observer.observe(document.getElementById('header'))
     }
 }
 </script>
 
 <style scoped>
-body{
-    margin: 0;
-
-}
-
 header{
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
 }
 
 #header{
     width: 100vw;
     height: 100vh;
     color: white;
-    font-family: arial;
-    font-size: 8vw;
-    
+    background-position: center center; 
 }
 
 #headertext{
@@ -74,26 +86,38 @@ header{
 }
 
 #overlay{
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+    background-image: linear-gradient(160deg, rgba(0,0,0,0.1), rgba(0,0,0,0.4), rgba(0,0,0,0.1));
     height: 100vh;
     width: 100%;   
-    position:absolute;
+    position: absolute;
     z-index: 0;
 }
 
 h1{
-    z-index: 1;
+    z-index: 0;
+    font-size: 2.5em;
+    font-weight: unset; 
 }
 
 nav, .navbar{
     display:flex;
     position:fixed;
     justify-content:center;
-    font-size:30px;
     list-style-type:none;
     z-index: 1;
-    font-family:arial;
     padding:0px;
+    width: 100vw; 
+}
+
+.navbar {
+    transition: all 0.2s; 
+    padding: 8px;
+}
+
+.navbar.pastHeader {
+    transition: all 0.2s; 
+    background: #cf1046;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 a:hover{
@@ -102,21 +126,20 @@ a:hover{
 }
 
 li a{
-    padding: 20px;
+    margin: 20px;
     color: white;
     text-decoration: none;
     width: fit-content;
+    transition: all 0.3s; 
+    text-transform: capitalize;
 }
 
 @media screen and (max-width: 400px) {
     .navbar{
         display: inline;
-        font-size:30px;
         list-style-type:none;
         z-index: 1;
-        font-family:arial;
         text-align:center;
     }
   }
-  
 </style>
