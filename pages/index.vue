@@ -39,15 +39,17 @@ export default {
 
   async asyncData({ params })  {
     let md = await import('~/content/index.md')
+    let navitemsFromMidsection = md.attributes['mid-section'].map((midSectionItem) => {
+          return midSectionItem.description
+        })
+    let navitems = [... navitemsFromMidsection, { slug: 'registration', title: 'Aanmelden'}]
 
     return {
       formTitle: md.attributes['form-title'],
       midSection: md.attributes['mid-section'],
       header: { 
         ... md.attributes['header'], 
-        navitems: md.attributes['mid-section'].map((midSectionItem) => {
-          return midSectionItem.description
-        })
+        navitems: navitems
       }
     }
   },
