@@ -27,7 +27,7 @@ section {
     align-items: center; 
     justify-content: center; 
     margin: auto; 
-    height: 70vh;
+    height: 38em;
     max-width: 80vw; 
 }
 
