@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Console />
     <Header 
       :title="header.title"
       :navitems="header.navitems"

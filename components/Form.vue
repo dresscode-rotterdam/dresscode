@@ -2,8 +2,8 @@
     <form
         :name="name"
         method="POST"
-        :data-netlify="'true'"
         @submit.prevent="submitHandler"
+        netlify
     >
         <h1>{{ this.title }}</h1>
         <fieldset :disabled="submitValues.isDisabled">
