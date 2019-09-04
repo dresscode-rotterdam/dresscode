@@ -1,22 +1,20 @@
-# dresscode
+# Dresscode
+Een kleine landingspage voor dresscode, geschreven in Nuxt en gehost op Netlify. 
 
-> My stunning Nuxt.js project
-
-## Build Setup
+## Snelle intro
+Om dit project lokaal te draaien moet je de volgende commando's invoeren. 
+Zorg ervoor dat je contributer bent van deze repository: 
 
 ``` bash
-# install dependencies
+# clonen repository 
+https://github.com/dresscode-rotterdam/dresscode
+
+# installeer de dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
+# draai de development server
 $ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
+# genereer de statische website
 $ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
