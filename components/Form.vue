@@ -2,7 +2,7 @@
     <form
         :name="name"
         method="POST"
-        data-netlify="true"
+        :data-netlify="'true'"
         @submit.prevent="submitHandler"
     >
         <h1>{{ this.title }}</h1>
